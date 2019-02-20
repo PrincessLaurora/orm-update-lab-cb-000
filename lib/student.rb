@@ -45,9 +45,9 @@ attr_reader :id
     student = self.new(name, grade)
     student.save
     student
-  end  
-    
-    
+  end
+
+
 
   def update
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
