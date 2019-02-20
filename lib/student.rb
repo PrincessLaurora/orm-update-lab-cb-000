@@ -36,12 +36,13 @@ attr_reader :id
       INSERT INTO students(name, grade)
       VALUES (?, ?)
     SQL
+
     DB[:conn].execute(sql, self.name, self.grade)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
     end
   end
 
-  def self.create (name, grade)
+  def self.create (name:, grade:)
     student = self.new(name, grade)
     student.save
     student
@@ -62,6 +63,7 @@ attr_reader :id
     WHERE name = ?
     LIMIT 1
     SQL
+
     DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
     end.first
