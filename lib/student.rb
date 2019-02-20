@@ -53,7 +53,7 @@ attr_reader :id
     new_student.id = row[0]
     new_student.name = row[1]
     new_student.grade = row[2]
-    new_student(id, name, grade)
+    new_student
   end
 
   def self.find_by_name(name)
